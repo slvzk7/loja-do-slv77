@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SLV Store</title>
+<title>SLV Sneakers</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
 
-body{background:#f5f5f5;}
+body{
+background:#f4f6f9;
+}
 
 header{
 background:#111;
@@ -22,59 +29,48 @@ align-items:center;
 .logo{
 font-size:22px;
 font-weight:bold;
-letter-spacing:2px;
 }
 
 .logo span{
 color:#00ff88;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-}
-
-.container{
-padding:40px;
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-justify-content:center;
+.hero{
+text-align:center;
+padding:40px 20px;
 }
 
 .produto{
 background:white;
-width:250px;
+max-width:350px;
+margin:30px auto;
 padding:20px;
-border-radius:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 text-align:center;
-transition:0.3s;
-}
-
-.produto:hover{
-transform:translateY(-5px);
 }
 
 .produto img{
 width:100%;
-border-radius:10px;
+border-radius:12px;
 }
 
-.produto h3{
+.preco{
+font-size:20px;
 margin:15px 0;
+color:#00aa55;
+font-weight:bold;
 }
 
 button{
 background:#00cc66;
 color:white;
 border:none;
-padding:10px;
+padding:12px;
 width:100%;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
-margin-top:10px;
+font-size:16px;
 }
 
 button:hover{
@@ -82,31 +78,17 @@ background:#00994d;
 }
 
 .carrinho{
-background:white;
-margin:40px auto;
-padding:20px;
-width:300px;
-border-radius:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
 text-align:center;
-}
-
-.pagamento{
-margin-top:15px;
-}
-
-select{
-padding:8px;
-width:100%;
-margin-top:10px;
+margin-top:20px;
+font-size:18px;
 }
 
 footer{
+margin-top:40px;
 background:#111;
 color:white;
 text-align:center;
 padding:15px;
-margin-top:40px;
 }
 </style>
 </head>
@@ -114,57 +96,27 @@ margin-top:40px;
 <body>
 
 <header>
-<div class="logo">SLV<span>STORE</span></div>
-<nav>
-<a href="#">Produtos</a>
-<a href="#">Contato</a>
-</nav>
+<div class="logo">SLV <span>SNEAKERS</span></div>
 </header>
 
-<div class="container">
-
-<div class="produto">
-<img src="https://via.placeholder.com/250" alt="">
-<h3>Camiseta Premium</h3>
-<p>R$ 79</p>
-<button onclick="add(79)">Adicionar</button>
+<div class="hero">
+<h1>Tênis Exclusivo 🔥</h1>
+<p>Estilo e conforto em um só produto</p>
 </div>
 
 <div class="produto">
-<img src="https://via.placeholder.com/250" alt="">
-<h3>Tênis Street</h3>
-<p>R$ 199</p>
-<button onclick="add(199)">Adicionar</button>
-</div>
-
-<div class="produto">
-<img src="https://via.placeholder.com/250" alt="">
-<h3>Boné Style</h3>
-<p>R$ 49</p>
-<button onclick="add(49)">Adicionar</button>
-</div>
-
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Tênis">
+<h2>Tênis Street Pro</h2>
+<p class="preco">R$ 299</p>
+<button onclick="add(299)">Adicionar ao Carrinho</button>
 </div>
 
 <div class="carrinho">
-<h2>Carrinho</h2>
-<p>Total: R$ <span id="total">0</span></p>
-
-<div class="pagamento">
-<select id="forma">
-<option value="Pix">Pix</option>
-<option value="Cartão">Cartão</option>
-<option value="Boleto">Boleto</option>
-</select>
-
-<button onclick="finalizar()">Finalizar Compra</button>
-</div>
-
-<p id="mensagem" style="margin-top:10px;color:green;"></p>
+Total: R$ <span id="total">0</span>
 </div>
 
 <footer>
-© 2026 SLV Store - Loja Teste
+© 2026 SLV Sneakers - Loja Teste
 </footer>
 
 <script>
@@ -173,18 +125,6 @@ let total = 0;
 function add(valor){
 total += valor;
 document.getElementById("total").innerText = total;
-}
-
-function finalizar(){
-if(total === 0){
-alert("Seu carrinho está vazio!");
-return;
-}
-
-let forma = document.getElementById("forma").value;
-
-document.getElementById("mensagem").innerText =
-"Compra realizada via " + forma + " ✅ (Simulação)";
 }
 </script>
 
