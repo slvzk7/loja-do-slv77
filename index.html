@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SLV Sneakers</title>
+<title>LV Style Brasil</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{
-background:#f4f6f9;
-}
+body{background:#f4f4f4;color:#111;}
 
 header{
-background:#111;
+background:black;
 color:white;
-padding:20px;
+padding:20px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-}
+header h1{font-size:22px;}
 
-.logo span{
-color:#00ff88;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:14px;
 }
 
 .hero{
+background:url("https://images.unsplash.com/photo-1520975922323-1c1d0e0f5d04") center/cover no-repeat;
+height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
 text-align:center;
-padding:40px 20px;
 }
 
-.produto{
+.hero h2{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:10px;
+font-size:32px;
+}
+
+.produtos{
+padding:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
 background:white;
-max-width:350px;
-margin:30px auto;
 padding:20px;
 border-radius:15px;
 box-shadow:0 8px 20px rgba(0,0,0,0.1);
-text-align:center;
+transition:0.3s;
 }
 
-.produto img{
+.card:hover{transform:translateY(-5px);}
+
+.card img{
 width:100%;
-border-radius:12px;
+height:250px;
+object-fit:cover;
+border-radius:10px;
 }
 
 .preco{
 font-size:20px;
-margin:15px 0;
-color:#00aa55;
-font-weight:bold;
+color:#008000;
+font-weight:600;
+margin:10px 0;
 }
 
 button{
-background:#00cc66;
+background:black;
 color:white;
 border:none;
-padding:12px;
+padding:10px;
 width:100%;
 border-radius:8px;
 cursor:pointer;
-font-size:16px;
+margin-top:5px;
 }
 
-button:hover{
-background:#00994d;
-}
+button:hover{background:#333;}
 
 .carrinho{
+background:white;
+margin:40px;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.carrinho input, select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+margin:10px 0;
+}
+
+.whatsapp{
+display:block;
 text-align:center;
-margin-top:20px;
-font-size:18px;
+background:#25D366;
+color:white;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+margin-top:15px;
+font-weight:600;
 }
 
 footer{
-margin-top:40px;
-background:#111;
+background:black;
 color:white;
 text-align:center;
-padding:15px;
+padding:20px;
+margin-top:50px;
+font-size:14px;
 }
 </style>
 </head>
@@ -96,27 +141,85 @@ padding:15px;
 <body>
 
 <header>
-<div class="logo">SLV <span>SNEAKERS</span></div>
+<h1>LV Style Brasil</h1>
+<nav>
+<a href="#">Início</a>
+<a href="#">Produtos</a>
+<a href="#">Pagamento</a>
+<a href="#">Contato</a>
+</nav>
 </header>
 
-<div class="hero">
-<h1>Tênis Exclusivo 🔥</h1>
-<p>Estilo e conforto em um só produto</p>
+<section class="hero">
+<h2>Camisas Exclusivas 🔥</h2>
+</section>
+
+<section class="produtos">
+<h2 style="margin-bottom:30px;">Nossos Produtos</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+<h3>Camisa LV Clássica</h3>
+<p>Modelo premium com acabamento refinado.</p>
+<p class="preco">R$ 899</p>
+<button onclick="add(899)">Adicionar ao Carrinho</button>
 </div>
 
-<div class="produto">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Tênis">
-<h2>Tênis Street Pro</h2>
-<p class="preco">R$ 299</p>
-<button onclick="add(299)">Adicionar ao Carrinho</button>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593032465171-8b7c2d0cbe75">
+<h3>Camisa LV Street</h3>
+<p>Estilo moderno e confortável.</p>
+<p class="preco">R$ 799</p>
+<button onclick="add(799)">Adicionar ao Carrinho</button>
 </div>
 
-<div class="carrinho">
-Total: R$ <span id="total">0</span>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<h3>Camisa LV Limited</h3>
+<p>Edição limitada exclusiva.</p>
+<p class="preco">R$ 1.099</p>
+<button onclick="add(1099)">Adicionar ao Carrinho</button>
 </div>
+
+</div>
+</section>
+
+<section class="carrinho">
+<h2>🛒 Finalizar Compra</h2>
+<p>Total: R$ <span id="total">0</span></p>
+
+<h3>📦 Dados para Entrega</h3>
+<input type="text" placeholder="Nome Completo">
+<input type="text" placeholder="Endereço">
+<input type="text" placeholder="Cidade">
+<input type="text" placeholder="CEP">
+
+<h3>💳 Forma de Pagamento</h3>
+<select>
+<option>Cartão de Crédito</option>
+<option>Cartão de Débito</option>
+<option>Pix</option>
+<option>Boleto Bancário</option>
+</select>
+
+<input type="text" placeholder="Número do Cartão (se aplicável)">
+<input type="text" placeholder="Validade">
+<input type="text" placeholder="CVV">
+
+<button onclick="pagar()">Confirmar Pedido</button>
+
+<a class="whatsapp" href="https://wa.me/62995704682" target="_blank">
+Falar no WhatsApp 📲
+</a>
+
+</section>
 
 <footer>
-© 2026 SLV Sneakers - Loja Teste
+© 2026 LV Style Brasil - Loja Demonstrativa
+<br>
+Política de Privacidade | Termos de Uso | Trocas e Devoluções
 </footer>
 
 <script>
@@ -125,6 +228,16 @@ let total = 0;
 function add(valor){
 total += valor;
 document.getElementById("total").innerText = total;
+}
+
+function pagar(){
+if(total === 0){
+alert("Seu carrinho está vazio!");
+}else{
+alert("Pedido confirmado! (Simulação)");
+total = 0;
+document.getElementById("total").innerText = total;
+}
 }
 </script>
 
