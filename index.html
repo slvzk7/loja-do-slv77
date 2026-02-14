@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLV Store</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+
+body{background:#f5f5f5;}
+
+header{
+background:#111;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.logo span{
+color:#00ff88;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.container{
+padding:40px;
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+}
+
+.produto{
+background:white;
+width:250px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.3s;
+}
+
+.produto:hover{
+transform:translateY(-5px);
+}
+
+.produto img{
+width:100%;
+border-radius:10px;
+}
+
+.produto h3{
+margin:15px 0;
+}
+
+button{
+background:#00cc66;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#00994d;
+}
+
+.carrinho{
+background:white;
+margin:40px auto;
+padding:20px;
+width:300px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.pagamento{
+margin-top:15px;
+}
+
+select{
+padding:8px;
+width:100%;
+margin-top:10px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">SLV<span>STORE</span></div>
+<nav>
+<a href="#">Produtos</a>
+<a href="#">Contato</a>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="produto">
+<img src="https://via.placeholder.com/250" alt="">
+<h3>Camiseta Premium</h3>
+<p>R$ 79</p>
+<button onclick="add(79)">Adicionar</button>
+</div>
+
+<div class="produto">
+<img src="https://via.placeholder.com/250" alt="">
+<h3>Tênis Street</h3>
+<p>R$ 199</p>
+<button onclick="add(199)">Adicionar</button>
+</div>
+
+<div class="produto">
+<img src="https://via.placeholder.com/250" alt="">
+<h3>Boné Style</h3>
+<p>R$ 49</p>
+<button onclick="add(49)">Adicionar</button>
+</div>
+
+</div>
+
+<div class="carrinho">
+<h2>Carrinho</h2>
+<p>Total: R$ <span id="total">0</span></p>
+
+<div class="pagamento">
+<select id="forma">
+<option value="Pix">Pix</option>
+<option value="Cartão">Cartão</option>
+<option value="Boleto">Boleto</option>
+</select>
+
+<button onclick="finalizar()">Finalizar Compra</button>
+</div>
+
+<p id="mensagem" style="margin-top:10px;color:green;"></p>
+</div>
+
+<footer>
+© 2026 SLV Store - Loja Teste
+</footer>
+
+<script>
+let total = 0;
+
+function add(valor){
+total += valor;
+document.getElementById("total").innerText = total;
+}
+
+function finalizar(){
+if(total === 0){
+alert("Seu carrinho está vazio!");
+return;
+}
+
+let forma = document.getElementById("forma").value;
+
+document.getElementById("mensagem").innerText =
+"Compra realizada via " + forma + " ✅ (Simulação)";
+}
+</script>
+
+</body>
+</html>
